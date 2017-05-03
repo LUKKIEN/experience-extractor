@@ -98,6 +98,18 @@ namespace ExperienceExtractor.Api.Jobs
 
             try
             {
+                if (Directory.Exists(TempDirectory))
+                {
+                    try
+                    {
+                        Directory.Delete(TempDirectory, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error("Error deleting temp directory", ex, this);
+                    }
+                }
+
                 Directory.CreateDirectory(TempDirectory);
 
                 File.WriteAllText(Path.Combine(TempDirectory, "specification.json"), Specification.ToString());
