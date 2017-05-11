@@ -98,7 +98,7 @@ namespace ExperienceExtractor.Api.Jobs
 
             try
             {
-                if (Directory.Exists(TempDirectory))
+                if (ExecutionSettings.CleanTempDirectory && Directory.Exists(TempDirectory))
                 {
                     try
                     {

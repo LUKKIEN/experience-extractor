@@ -35,5 +35,7 @@ namespace ExperienceExtractor.Api.Jobs
         public int FieldCacheSize { get; set; }
 
         public string DatabaseName { get; set; }
+
+        public bool CleanTempDirectory { get; set; }
     }
 }

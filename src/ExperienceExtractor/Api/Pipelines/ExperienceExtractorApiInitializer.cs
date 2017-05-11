@@ -77,6 +77,9 @@ namespace ExperienceExtractor.Api.Pipelines
                 exportNode.GetAttribute("database").SetIfDefined(value=>
                     ExperienceExtractorWebApiConfig.JobExecutionSettings.DatabaseName = value);
 
+                exportNode.GetAttribute("cleanTempDirectory").SetIfDefined(value =>
+                    ExperienceExtractorWebApiConfig.JobExecutionSettings.CleanTempDirectory = XmlConvert.ToBoolean(value));
+
                 exportNode.GetAttribute("xdbConnection").SetIfDefined(value =>
                     ExperienceExtractorWebApiConfig.XdbConnectionString = value);
 
