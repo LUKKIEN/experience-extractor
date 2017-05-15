@@ -98,11 +98,12 @@ namespace ExperienceExtractor.Api.Jobs
 
             try
             {
-                if (ExecutionSettings.CleanTempDirectory && Directory.Exists(TempDirectory))
+                if (ExecutionSettings.CleanTempDirectory && Directory.Exists(ExecutionSettings.TempDirectory))
                 {
                     try
                     {
-                        Directory.Delete(TempDirectory, true);
+                        Log.Info("Deleting temp directory", this);
+                        Directory.Delete(ExecutionSettings.TempDirectory, true);
                     }
                     catch (Exception ex)
                     {
